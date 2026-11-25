@@ -135,6 +135,19 @@ final class DisplayPad {
         return false
     }
 
+    /// Check whether macOS has published the vendor command interface without opening it.
+    static var hasCommandInterface: Bool {
+        let manager = IOHIDManagerCreate(kCFAllocatorDefault, IOOptionBits(kIOHIDOptionsTypeNone))
+        IOHIDManagerSetDeviceMatching(manager, [
+            kIOHIDVendorIDKey: Transport.vendorID,
+            kIOHIDProductIDKey: PadProto.productID,
+            kIOHIDPrimaryUsagePageKey: Transport.vendorUsagePage,
+            kIOHIDPrimaryUsageKey: Transport.vendorUsage,
+        ] as CFDictionary)
+        guard let devices = IOHIDManagerCopyDevices(manager) else { return false }
+        return CFSetGetCount(devices) > 0
+    }
+
     /// Opens the pad, checks its firmware and only then switches it to host
     /// mode. `startup` is how long to keep asking: a pad just plugged in
     /// needs a few seconds before it answers. It answers `11 00` before host

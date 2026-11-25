@@ -535,6 +535,8 @@ extension L10n {
         "section.displaypad.title": "DisplayPad",
         "pad.unsupported": "DisplayPad-firmware %1$@ understøttes ikke",
         "pad.unsupportedNote": "Everest skriver kun til firmware 8, den testede version, og lader dette pad være.",
+        "pad.waitingForControls": "USB registreret, venter på betjeningen",
+        "pad.waitingForControlsNote": "Hvis det fortsætter, skal du frakoble DisplayPad og tilslutte den igen. Profilændringer gemmes, mens du venter.",
         "pad.noAnswer": "DisplayPad svarer ikke",
         "pad.noAnswerNote": "Det er tilsluttet, men svarer ikke: vent et par sekunder, eller tilslut det direkte til Mac'en.",
         "section.displaypad.subtitle": "Tolv skærmtaster, hver med et billede og en macOS-handling",

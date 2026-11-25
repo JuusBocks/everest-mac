@@ -32,6 +32,11 @@ because no kernel driver claims it.
   its screen stayed black; plugged into the Mac directly, it lit up.
 - Pictures are kept in RAM until power is lost, so the daemon sends all twelve
   again on every connection and after the Mac wakes.
+- macOS can see the DisplayPad on USB before its HID command interface is
+  available, including after wake. Everest shows that it is waiting for the
+  controls and checks again without opening or resetting USB. You can edit
+  profiles while it waits. If the status persists, unplug and reconnect the
+  DisplayPad to retry enumeration manually.
 
 ## Firmware gate
 

@@ -535,6 +535,8 @@ extension L10n {
         "section.displaypad.title": "DisplayPad",
         "pad.unsupported": "O firmware %1$@ do DisplayPad não é suportado",
         "pad.unsupportedNote": "O Everest só escreve no firmware 8, a versão testada, e deixa este pad em paz.",
+        "pad.waitingForControls": "USB detetado, à espera dos controlos",
+        "pad.waitingForControlsNote": "Se este estado persistir, desligue e volte a ligar o DisplayPad. As alterações aos perfis são guardadas enquanto aguarda.",
         "pad.noAnswer": "O DisplayPad não responde",
         "pad.noAnswerNote": "Está ligado mas não responde: aguarde alguns segundos ou ligue-o diretamente ao Mac.",
         "section.displaypad.subtitle": "Doze teclas com ecrã, cada uma com uma imagem e uma ação do macOS",

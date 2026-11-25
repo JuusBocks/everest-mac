@@ -535,6 +535,8 @@ extension L10n {
         "section.displaypad.title": "DisplayPad",
         "pad.unsupported": "קושחת DisplayPad %1$@ אינה נתמכת",
         "pad.unsupportedNote": "Everest כותב רק לקושחה 8, הגרסה שנבדקה, ומשאיר את המשטח הזה בשקט.",
+        "pad.waitingForControls": "חיבור USB זוהה, ממתין לפקדים",
+        "pad.waitingForControlsNote": "אם המצב נמשך, יש לנתק את ה־DisplayPad ולחבר אותו מחדש. שינויי הפרופילים נשמרים בזמן ההמתנה.",
         "pad.noAnswer": "ה־DisplayPad לא מגיב",
         "pad.noAnswerNote": "הוא מחובר אך לא עונה: המתינו כמה שניות, או חברו אותו ישירות ל־Mac.",
         "section.displaypad.subtitle": "שנים־עשר מקשי מסך, לכל אחד תמונה ופעולת macOS",

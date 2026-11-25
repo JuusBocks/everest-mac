@@ -285,7 +285,12 @@ final class EverestModel: ObservableObject {
     func pollProfile() {
         checkAccessibility()
         padConnected = DisplayPad.isPresent
-        padState = daemonRunning && padConnected ? PadState.read() : nil
+        let reported = daemonRunning && padConnected ? PadState.read() : nil
+        if padConnected && (reported == nil || reported?.status == .absent) {
+            padState = DisplayPad.hasCommandInterface ? nil : PadState(status: .waitingForControls)
+        } else {
+            padState = reported
+        }
         if config.padButtons.contains(where: { $0.live != nil }) { liveSample = Metrics.latest(maxAge: 1.5) }
         if config.padButtons.contains(where: { $0.live?.needsCodexBar == true }) {
             let access = CodexBarUsage.access

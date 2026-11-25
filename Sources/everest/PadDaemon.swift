@@ -47,6 +47,12 @@ enum PadDaemon {
                     Thread.sleep(forTimeInterval: 2)
                     return
                 }
+                guard DisplayPad.hasCommandInterface else {
+                    note("USB detected; waiting for the HID command interface", PadState(status: .waitingForControls))
+                    retry = 2
+                    Thread.sleep(forTimeInterval: 2)
+                    return
+                }
                 let pad: DisplayPad
                 do {
                     pad = try DisplayPad()
@@ -237,7 +243,7 @@ enum PadDaemon {
 /// What the daemon knows about the pad, for the app's status line
 /// (`.pad-state` in the config directory).
 struct PadState: Codable, Equatable {
-    enum Status: String, Codable { case absent, noAnswer, unsupported, connected }
+    enum Status: String, Codable { case absent, waitingForControls, noAnswer, unsupported, connected }
     var status: Status
     var firmware: String?
 

@@ -4,6 +4,12 @@ import XCTest
 /// DisplayPad packets, byte for byte (from Mountain's SDK and verified on a
 /// pad running firmware 8), the command allow-list, and the config.
 final class PadTests: XCTestCase {
+    func testWaitingForControlsStatusSurvivesDaemonStatusEncoding() throws {
+        let state = PadState(status: .waitingForControls)
+        let data = try JSONEncoder().encode(state)
+        XCTAssertEqual(try JSONDecoder().decode(PadState.self, from: data), state)
+    }
+
     private func hex(_ p: [UInt8], _ n: Int = 12) -> String {
         p.prefix(n).map { String(format: "%02x", $0) }.joined(separator: " ")
     }

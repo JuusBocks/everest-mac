@@ -535,6 +535,8 @@ extension L10n {
         "section.displaypad.title": "DisplayPad",
         "pad.unsupported": "DisplayPadin laiteohjelmistoa %1$@ ei tueta",
         "pad.unsupportedNote": "Everest kirjoittaa vain laiteohjelmistoon 8, testattuun versioon, eikä koske tähän padiin.",
+        "pad.waitingForControls": "USB havaittu, odotetaan ohjaimia",
+        "pad.waitingForControlsNote": "Jos tila jatkuu, irrota DisplayPad ja liitä se uudelleen. Profiilimuutokset tallennetaan odotuksen aikana.",
         "pad.noAnswer": "DisplayPad ei vastaa",
         "pad.noAnswerNote": "Se on kytketty, mutta ei vastaa: odota muutama sekunti tai kytke se suoraan Maciin.",
         "section.displaypad.subtitle": "Kaksitoista näyttönäppäintä, jokaisessa kuva ja macOS-toiminto",

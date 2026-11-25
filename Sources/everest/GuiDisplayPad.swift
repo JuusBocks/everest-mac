@@ -75,7 +75,7 @@ extension EverestModel {
         config.padBrightness = PadProto.brightnessLevel(percent)
         guard commit else { return }
         persist()
-        guard !daemonRunning, padConnected else { return }   // the daemon applies it
+        guard !daemonRunning, padConnected, DisplayPad.hasCommandInterface else { return }
         let level = config.padBrightness
         let buttons = config.padButtons
         padSession { pad in
@@ -88,7 +88,7 @@ extension EverestModel {
     /// second. Without it the app sends them itself.
     func drawPadKeys(_ keys: [Int]) {
         let label = keys.count == 1 ? "P\(keys[0] + 1)" : tr("section.displaypad.title")
-        guard padConnected else {
+        guard padConnected, DisplayPad.hasCommandInterface else {
             report(tr("pad.status.savedOffline", label))
             return
         }
@@ -157,6 +157,8 @@ struct DisplayPadPage: View {
         case .unsupported:
             return ("exclamationmark.triangle.fill", Theme.danger,
                     tr("pad.unsupported", model.padState?.firmware ?? "?"), tr("pad.unsupportedNote"))
+        case .waitingForControls:
+            return ("hourglass", Theme.amber, tr("pad.waitingForControls"), tr("pad.waitingForControlsNote"))
         case .noAnswer:
             return ("hourglass", Theme.amber, tr("pad.noAnswer"), tr("pad.noAnswerNote"))
         default:
@@ -432,6 +434,7 @@ struct DisplayPadCard: View {
     private var subtitle: String {
         switch model.padState?.status {
         case .unsupported: return tr("pad.unsupported", model.padState?.firmware ?? "?")
+        case .waitingForControls: return tr("pad.waitingForControls")
         case .noAnswer: return tr("pad.noAnswer")
         default: return model.daemonActive ? tr("overview.actionsActive") : tr("daemon.stopped")
         }

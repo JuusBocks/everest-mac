@@ -415,6 +415,7 @@ struct DeviceCard: View {
         let line: String
         switch status {
         case .unsupported: line = tr("pad.unsupported", model.padState?.firmware ?? "?")
+        case .waitingForControls: line = tr("pad.waitingForControls")
         case .noAnswer: line = tr("pad.noAnswer")
         default: line = tr("section.displaypad.title")
         }

@@ -535,6 +535,8 @@ extension L10n {
         "section.displaypad.title": "DisplayPad",
         "pad.unsupported": "DisplayPad 펌웨어 %1$@은(는) 지원되지 않습니다",
         "pad.unsupportedNote": "Everest는 테스트된 버전인 펌웨어 8에만 쓰기를 하며, 이 패드는 건드리지 않습니다.",
+        "pad.waitingForControls": "USB 감지됨, 제어 인터페이스 대기 중",
+        "pad.waitingForControlsNote": "이 상태가 계속되면 DisplayPad를 분리했다가 다시 연결하세요. 기다리는 동안에도 프로필 편집 내용은 저장됩니다.",
         "pad.noAnswer": "DisplayPad가 응답하지 않음",
         "pad.noAnswerNote": "연결되어 있지만 응답하지 않습니다. 몇 초 기다리거나 Mac에 직접 연결하세요.",
         "section.displaypad.subtitle": "이미지와 macOS 동작을 지정할 수 있는 12개의 화면 키",
